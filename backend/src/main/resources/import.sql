@@ -1,3 +1,6 @@
+INSERT INTO tb_user (name, email, password) VALUES ('Alex', 'alex@gmail.com', '123456');
+INSERT INTO tb_user (name, email, password) VALUES ('Maria', 'maria@gmail.com', '123456');
+
 INSERT INTO tb_genre(name) VALUES('Adventure');
 
 INSERT INTO tb_book(title, description) VALUES ('The Lord of the Rings', 'An epic fantasy adventure in Middle-earth, filled with magic, friendship, and the struggle between good and evil.');
