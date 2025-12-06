@@ -1,6 +1,5 @@
 package com.library.library.config;
 
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,16 +11,20 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public PasswordEncoder getPasswordEncoder(){
+    public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // Desabilita CSRF (cuidado em produção, mas ok pra API simples)
         http.csrf(csrf -> csrf.disable());
-        http.securityMatcher(PathRequest.toH2Console()).csrf(csrf -> csrf.disable())
-                .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()));
-        http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+
+        // Por enquanto, libera tudo (ajuste depois conforme sua necessidade)
+        http.authorizeHttpRequests(auth -> auth
+                .anyRequest().permitAll()
+        );
+
         return http.build();
     }
 }
