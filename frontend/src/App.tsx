@@ -91,7 +91,7 @@ export default function App() {
                     border: "1px solid #ccc",
                     padding: 12,
                     borderRadius: 6,
-                    background: "#fff",
+                    background: "#7e7a4aff",
                   }}
                 >
                   <div style={{ fontSize: 18, fontWeight: 600 }}>{b.title}</div>
